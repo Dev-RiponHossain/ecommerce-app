@@ -29,8 +29,8 @@ class SsoController extends Controller
             'updated_at' => now(),
         ]);
 
-        // Foodpanda app এ redirect করো
-        $foodpandaUrl = 'http://localhost:8001/sso-login?token=' . $token;
+        // .env থেকে URL নাও
+        $foodpandaUrl = env('FOODPANDA_URL', 'http://localhost:8001') . '/sso-login?token=' . $token;
 
         return redirect($foodpandaUrl);
     }
